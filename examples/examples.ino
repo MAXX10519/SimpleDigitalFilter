@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
-#include "../src/SimpleFilterDigital.h"
+#include "../src/SimpleDigitalFilter.h"
 
-SimpleFilterDigital SimpleFilterInput();
+SimpleDigitalFilter SimpleDigitalInput();
 void setup() {
 
 }

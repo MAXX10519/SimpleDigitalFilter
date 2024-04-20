@@ -1,9 +1,9 @@
 #include <Arduino.h>
 
-#ifndef SIMPLEFILTERDIGITAL_H
-#define SIMPLEFILTERDIGITAL_H
+#ifndef SIMPLEDIGITALFILTER_H
+#define SIMPLEDIGITALFILTER_H
 
-class SimpleFilterDigital
+class SimpleDigitalFilter
 {
 private:
   uint32_t delayTime = 0;   // (ms)
@@ -11,9 +11,9 @@ private:
   boolean outState = 0;
   uint32_t oldTime = 0;
 public:
-  SimpleFilterDigital();   // Default delayTime = 10ms
-  SimpleFilterDigital(uint32_t); 
-  ~SimpleFilterDigital();
+  SimpleDigitalFilter();   // Default delayTime = 10ms
+  SimpleDigitalFilter(uint32_t); 
+  ~SimpleDigitalFilter();
   boolean updateState(boolean);
   uint32_t setDelayTime(uint32_t);
   uint32_t getDelayTime();
@@ -23,23 +23,23 @@ public:
 /**
  * Default delayTime = 10ms
 */
-SimpleFilterDigital::SimpleFilterDigital() 
+SimpleDigitalFilter::SimpleDigitalFilter() 
 {
   this->delayTime = 10;
   this->oldTime = millis();
 }
 
-SimpleFilterDigital::SimpleFilterDigital(uint32_t delayTime) // (ms)
+SimpleDigitalFilter::SimpleDigitalFilter(uint32_t delayTime) // (ms)
 {
   this->delayTime = delayTime;
   this->oldTime = millis();
 }
 
-SimpleFilterDigital::~SimpleFilterDigital()
+SimpleDigitalFilter::~SimpleDigitalFilter()
 {
 }
 
-boolean SimpleFilterDigital::updateState(boolean inState){
+boolean SimpleDigitalFilter::updateState(boolean inState){
   uint32_t nowTime = millis();
   if (inState != this->inState)
   {
@@ -55,19 +55,19 @@ boolean SimpleFilterDigital::updateState(boolean inState){
   return outState;
 }
 
-boolean SimpleFilterDigital::getInState(){
+boolean SimpleDigitalFilter::getInState(){
   return inState;
 }
 
-boolean SimpleFilterDigital::getOutState(){
+boolean SimpleDigitalFilter::getOutState(){
   return outState;
 }
 
-uint32_t SimpleFilterDigital::getDelayTime(){
+uint32_t SimpleDigitalFilter::getDelayTime(){
   return delayTime;
 }
 
-uint32_t SimpleFilterDigital::setDelayTime(uint32_t delayTime){
+uint32_t SimpleDigitalFilter::setDelayTime(uint32_t delayTime){
   this->delayTime = delayTime;
   return this->delayTime;
 }
