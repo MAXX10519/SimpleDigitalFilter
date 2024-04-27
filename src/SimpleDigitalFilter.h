@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
-#ifndef SIMPLEDIGITALFILTER_H
-#define SIMPLEDIGITALFILTER_H
+#ifndef SIMPLE_DIGITAL_FILTER_H
+#define SIMPLE_DIGITAL_FILTER_H
 
 class SimpleDigitalFilter
 {
